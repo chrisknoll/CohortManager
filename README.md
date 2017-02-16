@@ -7,17 +7,17 @@ Getting Started
 ===============
 
 1. in R, use the following commands to install CohortManager (if you have prior package installations of aony of these packages, you may need to first unistall them using the command remove.packages()).
-  ```r
+  ````r
     install.packages("devtools")
     library(devtools)
     install_github("chrisknoll/CohortManager")
-  ```
+  ````
   
 2. If you do not have existing CSV files, create an empty directory to store these, and execute the following to create empty files:
-  ```r
+  ````r
     directoryPath <- "{path to empty directory}";
     CohortManager::initCsv(directoryPath)
-  ```
+  ````
 3. Edit the CSV files. The CSV files needed for cohort manager are:
  * ConcpetSets.csv: Contains the names and IDs of the concept set expressions used across all cohort definitions. One row per concept set.
  * ConceptSetItems.csv: Contains the items, defining the concept_id and if you should include/exclude, use descendants or use mapped. Many rows per concept set.
@@ -30,9 +30,11 @@ Getting Started
  * CustomEraStrategy.csv: Specifies the data used when the cohort defintion exit strategy is set to 'CustomEra'. One row per cohort definition.
  * CohortCensoringEvents.csv: Specifies one or more cohort criteria to use as censoring events.
 4. Set the CohortManager options for the WebAPI path and sourceKey:
-  ```r
-  CohortManager::setOptions(webAPI = "http://rndusrdhit01.jnj.com:9090/WebAPI", sourceKey = "VOCABULARY_20161218");
-  ```
+  ````
+    directoryPath <- {path to empty directory};
+    CohortManager::initCsv(directoryPath)
+  ````
+
 5. Call CohortManager::setDataDirectory(path).  This will verify all tequired files and columns are found.
 6. Call CohortManager::sync() to create/update cohort definitions hosted in the specified WebAPI.
 
