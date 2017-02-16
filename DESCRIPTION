@@ -1,0 +1,15 @@
+Package: CohortManager
+Type: Package
+Title: OHDSI Cohort Manager Util
+Version: 0.1.0
+Author: Chris Knoll
+Maintainer: Chris Knoll <cknoll@ohdsi.org>
+Description: Creates and updates cohort definitions based on settings in CSV files
+License: None
+LazyData: TRUE
+Imports:
+    dplyr,
+    stringr,
+    utils,
+    jsonlite
+RoxygenNote: 5.0.1
