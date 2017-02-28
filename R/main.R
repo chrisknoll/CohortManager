@@ -58,8 +58,10 @@ buildCustomEraStrategy <- function(targetCohortId) {
 
 #' @export
 refreshCsv <- function() {
-  if (!dir.exists(directoryPath))
-    stop(paste("Directory does not exist:", directoryPath));
+  if (is.null(cacheEnv$workingDir))
+    stop("Working directory is not set.  call CohortManager::setWorkingDirectory(path) before processCohort().")
+
+  directoryPath <- cacheEnv$workingDir;
 
   csvData <- {};
   for (def in cacheEnv$requiredFiles) {
@@ -105,10 +107,9 @@ setDataDirectory <- function(directoryPath) {
           );
   }
 
-  refreshCsv();
-
   cacheEnv$workingDir = directoryPath;
   message(paste("Working directory set to: ", directoryPath));
+  refreshCsv();
 
 }
 
